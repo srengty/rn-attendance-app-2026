@@ -9,6 +9,7 @@ import { createStaticNavigation, NavigationContainer } from "@react-navigation/n
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./LoginScreen";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import HomeScreen from "./screens/HomeScreen";
 
 // Set the animation options. This is optional.
 SplashScreen.setOptions({
@@ -21,7 +22,7 @@ SplashScreen.preventAutoHideAsync();
 const rootRoutes = createNativeStackNavigator({
   screens: {
     Home: {
-      screen: IntroScreen,
+      screen: HomeScreen,
       options: { title: "Welcome" },
     },
   },
@@ -72,7 +73,7 @@ export default function App() {
       <Stack.Navigator initialRouteName={initialScreen}>
         <Stack.Screen
           name="Home"
-          component={IntroScreen}
+          component={HomeScreen}
           options={{ title: "Welcome" }}
         />
         <Stack.Screen
