@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
         borderRadius: 8
     },
     question:{
-        fontSize: '2em'
+        fontSize: 20
     }
 })

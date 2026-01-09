@@ -15,7 +15,7 @@ export default function LoginScreen(){
     const [errorMessage, setErrorMessage] = useState("");
     const handleLogin = async () => {
         try {
-            const response = await fetch("http://192.168.1.199:8000/api/login", {
+            const response = await fetch(process.env.EXPO_PUBLIC_API_URL+"/api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -61,6 +61,7 @@ export default function LoginScreen(){
                 style={{ height: 40, borderColor: "gray", borderWidth: 1, marginBottom: 10, paddingHorizontal: 10 }}
             />
             {errorMessage ? <Text style={{ color: "red", marginBottom: 10 }}>{errorMessage}</Text> : null}
+            <Text>Server URL: {process.env.EXPO_PUBLIC_API_URL}</Text>
             <Button title="Login" onPress={handleLogin} />
         </View>
     );

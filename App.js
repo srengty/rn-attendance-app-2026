@@ -1,23 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import Svg, { Path } from "react-native-svg";
-import IntroScreen from "./IntroScreen";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import * as SplashScreen from "expo-splash-screen";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createStaticNavigation, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Svg, { Path } from "react-native-svg";
 import LoginScreen from "./LoginScreen";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomeScreen from "./screens/HomeScreen";
 
 // Set the animation options. This is optional.
-SplashScreen.setOptions({
-  duration: 1000,
-  fade: true,
-});
+// SplashScreen.setOptions({
+//   duration: 1000,
+//   fade: true,
+// });
 // Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
+//SplashScreen.preventAutoHideAsync();
 
 const rootRoutes = createNativeStackNavigator({
   screens: {
@@ -56,7 +53,7 @@ export default function App() {
     checkAuthToken();
     setTimeout(() => {
       setIsLoading(false);
-      SplashScreen.hide();
+      //SplashScreen.hide();
     }, 3500);
   }, []);
   if(isLoading){
